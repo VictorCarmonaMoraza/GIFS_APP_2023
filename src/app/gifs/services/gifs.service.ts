@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class GifsService {
 
   private _tagsHisttory: string[] = [];
-
+  private apikey: string = 'd6aTZXKv9JX9ipehk2DnkZ2XorK7rxrN'
 
   constructor() { }
 
@@ -14,7 +14,7 @@ export class GifsService {
     return [...this._tagsHisttory];
   }
 
-  private organizeHistory(tag: string) {
+  private organizeHistory(tag: string):void {
     //Pasamos a minuscula el tag recibido
     tag = tag.toLowerCase();
 
