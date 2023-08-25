@@ -34,6 +34,11 @@ export class GifsService {
 
     //Cortamos para que solo pueda aceptar 10 elementos
     this._tagsHisttory = this._tagsHisttory.splice(0, 10);
+    this.saveLocalStorage()
+  }
+
+  private saveLocalStorage():void{
+    localStorage.setItem('history',  JSON.stringify(this._tagsHisttory));
   }
 
 
