@@ -6,6 +6,9 @@
   <div class="list-group list-reset">
     <button *ngFor="let tag of tagHistory" class="list-group-item list-group-item-action">
       {{tag | titlecase}}
+      <!--Creamos una funcion para que haga una nueva peticion cuando hemos vuelto a seleccionar el tag que
+      primeramente seleccionamos-->
+      (click)="RepeatSearchTag(tag)"
     </button>
   </div>
 
