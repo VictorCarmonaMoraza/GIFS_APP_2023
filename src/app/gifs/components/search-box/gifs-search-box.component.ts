@@ -21,4 +21,8 @@ export class SearchBoxComponent {
     //Limpiamos la caja de texto
     this.tagInput.nativeElement.value = '';
   }
+
+  limpiar():void{
+    localStorage.clear();
+  }
 }

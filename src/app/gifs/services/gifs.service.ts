@@ -13,7 +13,10 @@ export class GifsService {
   private apikey: string = 'd6aTZXKv9JX9ipehk2DnkZ2XorK7rxrN';
   private serviceUrl: string = 'https://api.giphy.com/v1/gifs';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log("Cargando data de localstorage");
+    this.loadLocalStorage();
+  }
 
   get tagsHistory() {
     return [...this._tagsHisttory];
@@ -37,8 +40,28 @@ export class GifsService {
     this.saveLocalStorage()
   }
 
+  //Guardar en el LocalStorage
   private saveLocalStorage():void{
     localStorage.setItem('history',  JSON.stringify(this._tagsHisttory));
+  }
+
+  //Leer informacion del localStorage
+  private loadLocalStorage():void{
+    //Si no tenemos data en el localStorage no hacemos nada
+    if(!localStorage.getItem('history')) return;
+
+    //Proceso opuesto de JSON.stringify, el signo de exclamacion es porque ese dato podria ser nulo y controlarlo
+    let dataLocalStorage = JSON.parse(localStorage.getItem('history')!)
+
+    //volvemos a cargar el historico de tag
+    this._tagsHisttory = dataLocalStorage
+
+    //Si el _tagsHistory esta vacio retornamos con nada
+    if(this._tagsHisttory.length === 0) return;
+
+    //Buscamos el history de la posicion 0
+    this.searchTag(this._tagsHisttory[0]);
+
   }
 
 
