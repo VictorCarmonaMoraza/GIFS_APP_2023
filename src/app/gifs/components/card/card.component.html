@@ -6,9 +6,19 @@
       class="card-img-top">
     <!--Fin seccion imagenes-->
 
+    <!--Opcion 1 sino viene titulo-->
     <div class="card-body text-white">
       <p class="card-text">
-        {{gif.title}}
+        <!--Si no viene titulo que ponga 'No title'-->
+        {{gif.title || 'No title'}}
+      </p>
+    </div>
+
+    <!--Opcion 2 sino viene titulo-->
+    <div *ngIf="gif.title" class="card-body text-white">
+      <p class="card-text">
+        <!--Si no viene titulo que ponga 'No title'-->
+        {{gif.title || 'No title'}}
       </p>
     </div>
 
