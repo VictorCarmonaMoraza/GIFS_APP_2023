@@ -1,9 +1,15 @@
   <div class="card mb-2 text-center bg-dark">
 
-    <!--TODO: Crear imagen-->
-    <img [src]="gif.images.downsized_medium.url"
+
+    <shared-lazy-image
+      [url]="gif.images.downsized_medium.url"
+      [alt]="gif.title || 'No name'"
+      ></shared-lazy-image>
+      
+    TODO: Crear imagen
+    <!-- <img [src]="gif.images.downsized_medium.url"
       [alt]="gif.title"
-      class="card-img-top">
+      class="card-img-top"> -->
     <!--Fin seccion imagenes-->
 
     <!--Opcion 1 sino viene titulo-->
@@ -15,11 +21,11 @@
     </div>
 
     <!--Opcion 2 sino viene titulo-->
-    <div *ngIf="gif.title" class="card-body text-white">
+    <!-- <div *ngIf="gif.title" class="card-body text-white">
       <p class="card-text">
         <!--Si no viene titulo que ponga 'No title'-->
-        {{gif.title || 'No title'}}
-      </p>
-    </div>
+        <!-- {{gif.title || 'No title'}} -->
+      <!-- </p>
+    </div> --> -->
 
   </div>
