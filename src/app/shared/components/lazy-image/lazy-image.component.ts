@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class LazyImageComponent implements OnInit {
 
   @Input() public url!: string;
-  @Input() public alt!: string;
+  @Input() public alt: string = '';
 
   public hasLoaded: boolean = false;
 
@@ -17,7 +17,6 @@ export class LazyImageComponent implements OnInit {
   }
 
   onLoad() {
-    console.log('Image loaded');
     this.hasLoaded = true;
   }
 
